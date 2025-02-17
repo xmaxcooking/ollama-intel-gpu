@@ -13,7 +13,7 @@ services:
       - TZ=Europe/Berlin
       - DEVICE=Arc
     volumes:
-      - ollama-intel-gpu:/root/.ollama
+      - ollama:/root/.ollama
     security_opt:
       - no-new-privileges:true
     restart: unless-stopped
@@ -26,7 +26,7 @@ services:
       - TZ=Europe/Berlin
       - OLLAMA_BASE_URL=http://ollama-intel-gpu:11434
     volumes:
-      - ollama-webui:/app/backend/data
+      - ui:/app/backend/data
     depends_on:
       - ollama-intel-gpu
     restart: unless-stopped
